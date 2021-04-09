@@ -13,7 +13,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 print('Indtast gmail, password, modtager e-mail og varenavn')
-gmailId, passWord, modtager, vareNavn = map(str, input().split())
+
+gmailId= "ArkivHTX@gmail.com"
+passWord="Belgisk/Vaffel55"
+modtager="simon.thomsen01@gmail.com"
+vareNavn= "tusch"
+#gmailId, passWord, modtager, vareNavn = map(str, input().split())
 try:
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get(r'https://accounts.google.com/signin/v2/identifier?continue='+\
@@ -40,15 +45,18 @@ try:
 except:
     print('Login Failed')
 
-driver.implicitly_wait(1000)
+driver.implicitly_wait(150)
 try:
     new_email = driver.find_element_by_xpath('//*[@class ="T-I T-I-KE L3"]').click()
-
-    driver.find_element(by.CLASS, "vO").send_keys("Test2"+Keys.ENTER)
+    driver.find_element_by_xpath("//textarea[@class='vO']").send_keys(modtager)
+    # driver.find_element(by.ROLE, "combobox").send_keys("Test2"+ Keys.ENTER)
     # modtager.send_keys("kage")
     #emne = driver.find_element_by_xpath('//*[@name ="subjectbox"]').click()
     #emne.send_keys("Lav mængde af")
     #Besked = driver.find_element_by_xpath('//*[@]')
-    driver.find_element(By.NAME, "subjectbox").send_keys("Test" + Keys.ENTER)
+    emne= driver.find_element_by_xpath("//input[@name='subjectbox']")
+    emne.click()
+    emne.send_keys("Der er lav mængde af"+vareNavn)
+    # driver.find_element(By.NAME, "subjectbox" and by.ID, ":bv").click().send_keys("Test" + Keys.ENTER)
 except:
     ('Email Failed')
