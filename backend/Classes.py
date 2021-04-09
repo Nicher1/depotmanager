@@ -5,6 +5,10 @@ import random
 # conda install -c conda-forge webdrivermanager
 # conda install -c conda-forge selenium
 # http://chromedriver.chromium.org/
+
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+driver = webdriver.Chrome(ChromeDriverManager().install())
 ROOT_DIR = os.path.abspath(os.getcwd()) + "\\backend\\data\\"
 print(ROOT_DIR)
 
