@@ -55,4 +55,4 @@ def lowInvMail(gmailId,passWord,modtager,vareNavn):
     except:
         ('Email not sent')
 
-lowInvMail("arkivHTX@gmail.com","Belgisk/Vaffel55","simon.thomsen01@gmail.com","hjerneceller")
+# lowInvMail("arkivHTX@gmail.com","Belgisk/Vaffel55","simon.thomsen01@gmail.com","hjerneceller")
