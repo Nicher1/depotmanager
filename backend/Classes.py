@@ -31,6 +31,24 @@ def nyBruger():
     bruger_ID = random.randint(1000000000000,9999999999999)
     brugerList.append(bruger(admin,navn,bruger_ID,mail))
 
+loginNavn = ""
+loginID = 0
+loginAdmin = False
+loginEmail = ""
+
+def login(bruger_ID):
+    global loginAdmin, loginEmail, loginID, loginNavn
+    for i in brugerList:
+        if i.bruger_ID == bruger_ID:
+            loginNavn = i.brugernavn
+            loginID = i.bruger_ID
+            loginEmail = i.mail
+            loginAdmin = i.admin
+            break
+        else:
+            print("Brugernavnet findes ikke")
+    pass
+
 class vare:
     def __init__(self, varenummer, varenavn, antal):
         self.varenummer = varenummer
