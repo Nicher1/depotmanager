@@ -9,9 +9,11 @@
 #                 "arkivHTX@googlemail.com", "Maybe?")
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
-print('Enter the gmailid and password')
-gmailId, passWord = map(str, input().split())
+print('Indtast gmail, password, modtager e-mail og varenavn')
+gmailId, passWord, modtager, vareNavn = map(str, input().split())
 try:
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get(r'https://accounts.google.com/signin/v2/identifier?continue='+\
@@ -38,10 +40,15 @@ try:
 except:
     print('Login Failed')
 
-driver.implicitly_wait(15)
+driver.implicitly_wait(1000)
 try:
-    new_email = driver.find_element_by_role_name("button")
-    new_email.click()
-    print("works")
+    new_email = driver.find_element_by_xpath('//*[@class ="T-I T-I-KE L3"]').click()
+
+    driver.find_element(by.CLASS, "vO").send_keys("Test2"+Keys.ENTER)
+    # modtager.send_keys("kage")
+    #emne = driver.find_element_by_xpath('//*[@name ="subjectbox"]').click()
+    #emne.send_keys("Lav mængde af")
+    #Besked = driver.find_element_by_xpath('//*[@]')
+    driver.find_element(By.NAME, "subjectbox").send_keys("Test" + Keys.ENTER)
 except:
     ('Email Failed')
