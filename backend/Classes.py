@@ -1,3 +1,4 @@
+from mailsetup import lowInvMail
 #import datetime
 import pickle
 import os
@@ -150,3 +151,6 @@ class ordre:
         for i in l.vareliste:
             if self.vareliste[index][0] == i.varenummer:
                 i.foroegAntal(exAntal-antal)
+
+
+    lowInvMail("arkivHTX@gmail.com","Belgisk/Vaffel55","nichlasost@gmail.com","kage")
