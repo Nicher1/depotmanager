@@ -2,9 +2,7 @@ import datetime
 import pickle
 import os
 import random
-# conda install -c conda-forge webdrivermanager
-# conda install -c conda-forge selenium
-# http://chromedriver.chromium.org/
+
 ROOT_DIR = os.path.abspath(os.getcwd()) + "\\data\\"
 
 l = 0
