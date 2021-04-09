@@ -2,6 +2,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import time
 
 
 
@@ -42,13 +43,16 @@ def lowInvMail(gmailId,passWord,modtager,vareNavn):
         textbox = driver.find_element_by_xpath("//div[@class='Am Al editable LW-avf tS-tW']")
         textbox.click()
         textbox.send_keys("Yo bitch! Denne vare: "+vareNavn+ " er lav i beholdning.")
+        print('input Successful...!!')
     except:
         ('Email Failed')
 
     try:
         send_knap = driver.find_element_by_xpath("//div[@class='T-I J-J5-Ji aoO v7 T-I-atl L3']")
         send_knap.click()
+        print('sending Successful...!!')
+        time.sleep(2)
     except:
         ('Email not sent')
 
-lowInvMail("arkivHTX@gmail.com","Belgisk/Vaffel55","nl@hldata.dk","hjerneceller")
+lowInvMail("arkivHTX@gmail.com","Belgisk/Vaffel55","simon.thomsen01@gmail.com","hjerneceller")
